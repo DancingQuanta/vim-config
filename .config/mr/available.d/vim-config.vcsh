@@ -1,0 +1,8 @@
+## DancingQuanta/vim-config - https://github.com/DancingQuanta/vim-config
+## vim-config.git
+## Setup DancingQuanta/vim-config which is based on rafi/vim-config
+
+### MAIN REPOSITORY - cloned via vcsh
+# vim-config
+[$HOME/.config/vcsh/repo.d/vim-config.git]
+checkout = vcsh clone https://github.com/DancingQuanta/vim-config
