@@ -52,4 +52,8 @@ endfunction
 autocmd MyAutoCmd BufWritePre *.js call s:set_javascript_exe()
 call s:set_javascript_exe()
 
+" MARKDOWN / PANDOC
+let g:neomake_markdown_enabled_makers = ['mdl', 'proselint']
+let g:neomake_markdown_proselint_maker = neomake#makers#ft#text#proselint()
+
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
