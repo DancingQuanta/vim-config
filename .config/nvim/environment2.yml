@@ -1,0 +1,6 @@
+name: neovim2
+dependencies:
+  - python=2.7
+  - pip:
+    - neovim
+    - PyYAML
