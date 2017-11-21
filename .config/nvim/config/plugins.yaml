@@ -81,6 +81,9 @@
 - repo: Rykka/riv.vim
   on_ft: rst
 
+- repo: lervag/vimtex
+  on_ft: tex
+
 - repo: pangloss/vim-javascript
   on_ft: [ javascript, jsx, javascript.jsx ]
   hook_source: |
@@ -248,7 +251,7 @@
     let g:lint_filetypes = [
       \  'yaml.ansible', 'python', 'php', 'ruby', 'vim', 'go', 'sh',
       \  'javascript', 'jsx', 'javascript.jsx', 'json', 'css',
-      \  'markdown', 'html', 'yaml'
+      \  'markdown', 'html', 'yaml', 'tex'
       \ ]
     autocmd MyAutoCmd BufWritePost *
       \ if index(g:lint_filetypes, &filetype) > -1 && empty(&buftype)
