@@ -305,7 +305,6 @@
   hook_source: let g:committia_min_window_width = 70
 
 - repo: benekastah/neomake
-  if: has('nvim')
   on_cmd: [ Neomake, NeomakeFile, NeomakeEnable ]
   hook_source: source $VIMPATH/config/plugins/neomake.vim
   hook_add: |
