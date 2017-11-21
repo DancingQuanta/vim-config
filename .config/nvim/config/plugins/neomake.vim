@@ -5,8 +5,10 @@ let g:neomake_open_list = 0
 let g:neomake_verbose = 1
 let g:airline#extensions#neomake#enabled = 0
 
-if ! empty(g:python3_host_prog)
-	let g:neomake_python_python_exe = g:python3_host_prog
+if exists("g:python3_host_prog")
+	if !empty("g:python3_host_prog")
+		let g:neomake_python_python_exe = g:python3_host_prog
+	endif
 endif
 
 " JAVASCRIPT / JSX
