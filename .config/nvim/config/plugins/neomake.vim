@@ -21,4 +21,8 @@ let g:neomake_yaml_enabled_makers = ['yamllint']
 let g:neomake_ansible_enabled_makers = ['yamllint']
 let g:neomake_ansible_yamllint_maker = neomake#makers#ft#yaml#yamllint()
 
+" MARKDOWN / PANDOC
+let g:neomake_markdown_enabled_makers = ['mdl', 'proselint']
+let g:neomake_markdown_proselint_maker = neomake#makers#ft#text#proselint()
+
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
