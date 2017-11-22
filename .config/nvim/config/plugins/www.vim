@@ -9,9 +9,9 @@ let g:www_engines = {
   \ }
 let g:www_default_search_engine = 'google'
 let g:www_shortcut_engines = {
-  \ 'google': ['Google', '<leader>g', 'Googlec', '<leader>gc'],
-  \ 'scholar': ['Scholar', '<leader>s', 'Scholarc', '<leader>sc'],
-  \ 'library': ['Library', '<leader>l', 'Libraryc', '<leader>lc']
+  \ 'google': ['Google', '<leader>wg', 'Googlec', '<leader>wgc'],
+  \ 'scholar': ['Scholar', '<leader>ws', 'Scholarc', '<leader>wsc'],
+  \ 'library': ['Library', '<leader>wl', 'Libraryc', '<leader>wlc']
   \}
 let g:www_sessions = {
   \ 'dev' : ['vim', 'http://stackoverflow.com'],
