@@ -82,6 +82,9 @@
 - repo: lervag/vimtex
   on_ft: tex
 
+- repo: Rykka/riv.vim
+  on_ft: rst
+
 - repo: pangloss/vim-javascript
   on_ft: [ javascript, jsx, javascript.jsx ]
   hook_source: |
