@@ -12,6 +12,7 @@ install:
 update:
 	@git pull --ff --ff-only; \
 	$(vim) -N -u config/init.vim -c "set nomore | try | call dein#clear_state() | call dein#update() | finally | messages | qall! | endtry" -V1 -es
+	./venv.sh
 
 upgrade: update
 
