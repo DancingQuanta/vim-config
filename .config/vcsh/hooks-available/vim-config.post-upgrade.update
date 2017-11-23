@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 ## DancingQuanta/vim-config - https://github.com/DancingQuanta/vim-config
-## vim-config.post-pull.update
+## vim-config.post-upgrade.update
 ## Update vim configuration after pull
 
 changed_files="$(git diff-tree -r --name-only --no-commit-id HEAD@{1} HEAD)"
