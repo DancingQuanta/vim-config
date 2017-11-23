@@ -418,6 +418,7 @@
 - { repo: chemzqm/denite-git, on_source: denite.nvim }
 - { repo: rafi/vim-denite-z, on_source: denite.nvim }
 - { repo: rafi/vim-denite-session, on_source: denite.nvim }
+- { repo: rafi/vim-denite-task, on_source: denite.nvim }
 
 - repo: rafi/vim-denite-mpc
   if: executable('mpc') && empty($VIM_MINIMAL)
