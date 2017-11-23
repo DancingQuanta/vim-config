@@ -50,3 +50,8 @@
 !/.gitingore.d/vim-config
 !/.vim
 !/README.md
+!/.config/vcsh/
+!/.config/vcsh/hooks-available
+!/.config/vcsh/hooks-available/vim-config.*
+!/.config/vcsh/hooks-enabled
+!/.config/vcsh/hooks-enabled/vim-config.*
