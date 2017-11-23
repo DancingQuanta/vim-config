@@ -41,6 +41,11 @@
 !/.config/nvim/themes/rafi-2017.vim
 !/.config/nvim/venv.sh
 !/.config/nvim/vimrc
+!/.config/vcsh/
+!/.config/vcsh/hooks-available
+!/.config/vcsh/hooks-available/vim-config.*
+!/.config/vcsh/hooks-enabled
+!/.config/vcsh/hooks-enabled/vim-config.*
 !/.gitignore.d
 !/.gitignore.d/vim-config
 !/README.md
