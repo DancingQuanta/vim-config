@@ -5,104 +5,104 @@
 " Non-standard {{{
 " ------------
 
-" Window-control prefix
-nnoremap  [Window]   <Nop>
-nmap      s [Window]
+"" Window-control prefix
+"nnoremap  [Window]   <Nop>
+"nmap      s [Window]
 
-" Fix keybind name for Ctrl+Spacebar
-map <Nul> <C-Space>
-map! <Nul> <C-Space>
+"" Fix keybind name for Ctrl+Spacebar
+"map <Nul> <C-Space>
+"map! <Nul> <C-Space>
 
-" Disable arrow movement, resize splits instead.
-if get(g:, 'elite_mode')
-	nnoremap <Up>    :resize +2<CR>
-	nnoremap <Down>  :resize -2<CR>
-	nnoremap <Left>  :vertical resize +2<CR>
-	nnoremap <Right> :vertical resize -2<CR>
-endif
+"" Disable arrow movement, resize splits instead.
+"if get(g:, 'elite_mode')
+	"nnoremap <Up>    :resize +2<CR>
+	"nnoremap <Down>  :resize -2<CR>
+	"nnoremap <Left>  :vertical resize +2<CR>
+	"nnoremap <Right> :vertical resize -2<CR>
+"endif
 
-" Double leader key for toggling visual-line mode
-nmap <silent> <Leader><Leader> V
-vmap <Leader><Leader> <Esc>
+"" Double leader key for toggling visual-line mode
+"nmap <silent> <Leader><Leader> V
+"vmap <Leader><Leader> <Esc>
 
-" Change current word in a repeatable manner
-nnoremap cn *``cgn
-nnoremap cN *``cgN
+"" Change current word in a repeatable manner
+"nnoremap cn *``cgn
+"nnoremap cN *``cgN
 
-" Change selected word in a repeatable manner
-vnoremap <expr> cn "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgn"
-vnoremap <expr> cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
+"" Change selected word in a repeatable manner
+"vnoremap <expr> cn "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgn"
+"vnoremap <expr> cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
 
-nnoremap cp yap<S-}>p
-nnoremap <leader>a =ip
+"nnoremap cp yap<S-}>p
+"nnoremap <leader>a =ip
 
-" xnoremap p  "0p
-" nnoremap x "_x
+"" xnoremap p  "0p
+"" nnoremap x "_x
 
-" Toggle fold
-nnoremap <CR> za
+"" Toggle fold
+"nnoremap <CR> za
 
-" Focus the current fold by closing all others
-nnoremap <S-Return> zMza
+"" Focus the current fold by closing all others
+"nnoremap <S-Return> zMza
 
-" Use backspace key for matchit.vim
-nmap <BS> %
-xmap <BS> %
+"" Use backspace key for matchit.vim
+"nmap <BS> %
+"xmap <BS> %
 
-nmap <Tab>  <C-w>w
-nmap <S-Tab>  <C-w>W
+"nmap <Tab>  <C-w>w
+"nmap <S-Tab>  <C-w>W
 
-"}}}
-" Global niceties {{{
-" ---------------
+""}}}
+"" Global niceties {{{
+"" ---------------
 
-" Start an external command with a single bang
-nnoremap ! :!
+"" Start an external command with a single bang
+"nnoremap ! :!
 
-" Allow misspellings
-cnoreabbrev qw wq
-cnoreabbrev Wq wq
-cnoreabbrev WQ wq
-cnoreabbrev Qa qa
-cnoreabbrev Bd bd
-cnoreabbrev bD bd
+"" Allow misspellings
+"cnoreabbrev qw wq
+"cnoreabbrev Wq wq
+"cnoreabbrev WQ wq
+"cnoreabbrev Qa qa
+"cnoreabbrev Bd bd
+"cnoreabbrev bD bd
 
-" Start new line from any cursor position
-inoremap <S-Return> <C-o>o
+"" Start new line from any cursor position
+"inoremap <S-Return> <C-o>o
 
-" Quick substitute within selected area
-xnoremap s :s//g<Left><Left>
+"" Quick substitute within selected area
+"xnoremap s :s//g<Left><Left>
 
-nnoremap zl z5l
-nnoremap zh z5h
+"nnoremap zl z5l
+"nnoremap zh z5h
 
-" Improve scroll, credits: https://github.com/Shougo
-nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
-	\ 'zt' : (winline() == 1) ? 'zb' : 'zz'
-noremap <expr> <C-f> max([winheight(0) - 2, 1])
-	\ ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
-noremap <expr> <C-b> max([winheight(0) - 2, 1])
-	\ ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
-noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
-noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
+"" Improve scroll, credits: https://github.com/Shougo
+"nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
+	"\ 'zt' : (winline() == 1) ? 'zb' : 'zz'
+"noremap <expr> <C-f> max([winheight(0) - 2, 1])
+	"\ ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
+"noremap <expr> <C-b> max([winheight(0) - 2, 1])
+	"\ ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
+"noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
+"noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
 
-" Window control
-nnoremap <C-q> <C-w>
-nnoremap <C-x> <C-w>x
-nnoremap <silent><C-w>z :vert resize<CR>:resize<CR>:normal! ze<CR>
+"" Window control
+"nnoremap <C-q> <C-w>
+"nnoremap <C-x> <C-w>x
+"nnoremap <silent><C-w>z :vert resize<CR>:resize<CR>:normal! ze<CR>
 
-" Select blocks after indenting
-xnoremap < <gv
-xnoremap > >gv|
+"" Select blocks after indenting
+"xnoremap < <gv
+"xnoremap > >gv|
 
-" Use tab for indenting in visual mode
-vnoremap <Tab> >gv|
-vnoremap <S-Tab> <gv
-nnoremap > >>_
-nnoremap < <<_
+"" Use tab for indenting in visual mode
+""vnoremap <Tab> >gv|
+""vnoremap <S-Tab> <gv
+""nnoremap > >>_
+""nnoremap < <<_
 
-" Select last paste
-nnoremap <expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
+"" Select last paste
+"nnoremap <expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
 
 " Navigation in command line
 cnoremap <C-h> <Home>
