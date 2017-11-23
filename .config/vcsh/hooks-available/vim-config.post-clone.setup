@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+## DancingQuanta/vim-config - https://github.com/DancingQuanta/vim-config
+## vim-config.post-clone.setup
+## Setup vim configuration after cloning
+cd ~/.config/nvim
+make install

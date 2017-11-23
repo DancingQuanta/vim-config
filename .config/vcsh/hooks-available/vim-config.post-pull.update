@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+## DancingQuanta/vim-config - https://github.com/DancingQuanta/vim-config
+## vim-config.post-pull.update
+## Update vim configuration after pull
+cd ~/.config/nvim
+make update
