@@ -13,14 +13,6 @@
 "map <Nul> <C-Space>
 "map! <Nul> <C-Space>
 
-"" Disable arrow movement, resize splits instead.
-"if get(g:, 'elite_mode')
-	"nnoremap <Up>    :resize +2<CR>
-	"nnoremap <Down>  :resize -2<CR>
-	"nnoremap <Left>  :vertical resize +2<CR>
-	"nnoremap <Right> :vertical resize -2<CR>
-"endif
-
 "" Double leader key for toggling visual-line mode
 "nmap <silent> <Leader><Leader> V
 "vmap <Leader><Leader> <Esc>
@@ -138,6 +130,15 @@ cmap W!! w !sudo tee % >/dev/null
 " }}}
 " Editor UI {{{
 " ---------
+
+" Get out of insert mode!
+inoremap kj <Esc>
+
+" Disable arrow movement, resize splits instead.
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
 
 " I like to :quit with 'q', shrug.
 nnoremap <silent> q :<C-u>:quit<CR>
