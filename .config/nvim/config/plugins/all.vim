@@ -185,8 +185,8 @@ if dein#tap('goyo.vim')
 endif
 
 if dein#tap('vim-peekaboo')
-	nnoremap <buffer> <silent> " :<c-u>call peekaboo#peek(v:count1, 'quote',  0)<cr>
-	xnoremap <buffer> <silent> " :<c-u>call peekaboo#peek(v:count1, 'quote',  1)<cr>
+	" nnoremap <buffer> <silent> " :<c-u>call peekaboo#peek(v:count1, 'quote',  0)<cr>
+	" xnoremap <buffer> <silent> " :<c-u>call peekaboo#peek(v:count1, 'quote',  1)<cr>
 	nnoremap <buffer> <silent> @ :<c-u>call peekaboo#peek(v:count1, 'replay', 0)<cr>
 	inoremap <buffer> <silent> <c-r> <c-o>:call peekaboo#peek(1, 'ctrl-r',  0)<cr>
 endif
@@ -308,8 +308,6 @@ endif
 if dein#tap('splitjoin.vim')
 	let g:splitjoin_join_mapping = ''
 	let g:splitjoin_split_mapping = ''
-	nmap sj :SplitjoinJoin<CR>
-	nmap sk :SplitjoinSplit<CR>
 endif
 
 if dein#tap('linediff.vim')
@@ -350,19 +348,19 @@ if dein#tap('caw.vim')
 	call InitCaw()
 endif
 
-if dein#tap('vim-easymotion')
-	nmap ss <Plug>(easymotion-s2)
-	nmap sd <Plug>(easymotion-s)
-	nmap sf <Plug>(easymotion-overwin-f)
-	map  sh <Plug>(easymotion-linebackward)
-	map  sl <Plug>(easymotion-lineforward)
-	" map  sj <Plug>(easymotion-j)
-	" map  sk <Plug>(easymotion-k)
-	map  s/ <Plug>(easymotion-sn)
-	omap s/ <Plug>(easymotion-tn)
-	map  sn <Plug>(easymotion-next)
-	map  sp <Plug>(easymotion-prev)
-endif
+" if dein#tap('vim-easymotion')
+" 	nmap ss <Plug>(easymotion-s2)
+" 	nmap sd <Plug>(easymotion-s)
+" 	nmap sf <Plug>(easymotion-overwin-f)
+" 	map  sh <Plug>(easymotion-linebackward)
+" 	map  sl <Plug>(easymotion-lineforward)
+" 	" map  sj <Plug>(easymotion-j)
+" 	" map  sk <Plug>(easymotion-k)
+" 	map  s/ <Plug>(easymotion-sn)
+" 	omap s/ <Plug>(easymotion-tn)
+" 	map  sn <Plug>(easymotion-next)
+" 	map  sp <Plug>(easymotion-prev)
+" endif
 
 if dein#tap('vim-textobj-multiblock')
 	omap <silent> ab <Plug>(textobj-multiblock-a)
