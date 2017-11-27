@@ -24,21 +24,21 @@ let g:neocomplete#min_keyword_length = 3
 " ---
 
 let g:neocomplete#disable_auto_select_buffer_name_pattern =
-	\ '\[Command Line\]'
+  \ '\[Command Line\]'
 
 " Do not autocomplete/cache in sensitive file patterns
 let g:neocomplete#sources#buffer#disabled_pattern =
-	\ '\/private\/var\/\|\/shm\/\|\/tmp\/\|\.vault\.vim'
+  \ '\/private\/var\/\|\/shm\/\|\/tmp\/\|\.vault\.vim'
 
 let g:neocomplete#lock_buffer_name_pattern =
-	\ g:neocomplete#sources#buffer#disabled_pattern
+  \ g:neocomplete#sources#buffer#disabled_pattern
 
 " Keyword patterns completion
 " ---
 
 " Define a default keyword pattern
 if ! exists('g:neocomplete#keyword_patterns')
-	let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns._ = '\h\k*(\?'
 
@@ -46,42 +46,42 @@ let g:neocomplete#keyword_patterns._ = '\h\k*(\?'
 " ---
 
 if ! exists('g:neocomplete#sources#omni#input_patterns')
-	let g:neocomplete#sources#omni#input_patterns = {}
+  let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
 let g:neocomplete#sources#omni#input_patterns.coffee =
-	\ '[[:alpha:]./"''$]\+'
+  \ '[[:alpha:]./"''$]\+'
 let g:neocomplete#sources#omni#input_patterns.go =
-	\ '[^.[:digit:] *\t]\.\w*'
+  \ '[^.[:digit:] *\t]\.\w*'
 "let g:neocomplete#sources#omni#input_patterns.c =
-"	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
+"  \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
 "let g:neocomplete#sources#omni#input_patterns.cpp =
-"	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+"  \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 let g:neocomplete#sources#omni#input_patterns.ruby =
-	\ '[^. *\t]\.\w*\|\h\w*::'
+  \ '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.python =
-	\ '[^. *\t]\.\w*\|\h\w*'
+  \ '[^. *\t]\.\w*\|\h\w*'
 
 " Force omni-completion input patterns
 " ---
 
 if ! exists('g:neocomplete#force_omni_input_patterns')
-	let g:neocomplete#force_omni_input_patterns = {}
+  let g:neocomplete#force_omni_input_patterns = {}
 endif
 
 let g:neocomplete#force_omni_input_patterns.javascript =
-	\ '[^. \t]\.\w*'
+  \ '[^. \t]\.\w*'
 let g:neocomplete#force_omni_input_patterns.typescript =
-	\ '[^. *\t]\.\w*\|\h\w*::'
+  \ '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplete#force_omni_input_patterns.php =
-	\ '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+  \ '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 "let g:neocomplete#force_omni_input_patterns.python =
-"	\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+"  \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 " Alternative pattern: \ '\h\w*\|[^. \t]\.\w*'
 
 call neocomplete#custom#source('_', 'converters',
-	\ ['converter_add_paren', 'converter_remove_overlap',
-	\  'converter_delimiter', 'converter_abbr'])
+  \ ['converter_add_paren', 'converter_remove_overlap',
+  \  'converter_delimiter', 'converter_abbr'])
 
 " Mappings
 " --------
@@ -112,8 +112,8 @@ imap <silent><expr> <C-x><C-f> neocomplete#start_manual_complete('file')
 " <CR>: If popup menu visible, expand snippet or close popup with selection,
 "       Otherwise, check if within empty pair and use delimitMate.
 imap <silent><expr><CR> pumvisible() ?
-	\ (neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<C-y>")
-		\ : (delimitMate#WithinEmptyPair() ? "\<Plug>delimitMateCR" : "\<CR>")
+  \ (neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<C-y>")
+    \ : (delimitMate#WithinEmptyPair() ? "\<Plug>delimitMateCR" : "\<CR>")
 
 " <Tab> completion:
 " 1. If popup menu is visible, select and insert next item
@@ -121,20 +121,20 @@ imap <silent><expr><CR> pumvisible() ?
 " 3. Otherwise, if preceding chars are whitespace, insert tab char
 " 4. Otherwise, start manual autocomplete
 imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-	\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : neocomplete#start_manual_complete()))
+  \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+  \ : (<SID>is_whitespace() ? "\<Tab>"
+  \ : neocomplete#start_manual_complete()))
 
 smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-	\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : neocomplete#start_manual_complete()))
+  \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+  \ : (<SID>is_whitespace() ? "\<Tab>"
+  \ : neocomplete#start_manual_complete()))
 
 inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:is_whitespace() "{{{
-	let col = col('.') - 1
-	return ! col || getline('.')[col - 1] =~? '\s'
+  let col = col('.') - 1
+  return ! col || getline('.')[col - 1] =~? '\s'
 endfunction "}}}
 
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 et :

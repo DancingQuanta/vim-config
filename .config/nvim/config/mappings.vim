@@ -70,11 +70,11 @@
 
 "" Improve scroll, credits: https://github.com/Shougo
 "nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
-	"\ 'zt' : (winline() == 1) ? 'zb' : 'zz'
+  "\ 'zt' : (winline() == 1) ? 'zb' : 'zz'
 "noremap <expr> <C-f> max([winheight(0) - 2, 1])
-	"\ ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
+  "\ ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
 "noremap <expr> <C-b> max([winheight(0) - 2, 1])
-	"\ ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
+  "\ ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
 "noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
 "noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
 
@@ -150,8 +150,8 @@ nnoremap gQ @q
 
 " Show highlight names under cursor
 nmap <silent> gh :echo 'hi<'.synIDattr(synID(line('.'), col('.'), 1), 'name')
-	\.'> trans<'.synIDattr(synID(line('.'), col('.'), 0), 'name').'> lo<'
-	\.synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name').'>'<CR>
+  \.'> trans<'.synIDattr(synID(line('.'), col('.'), 0), 'name').'> lo<'
+  \.synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name').'>'<CR>
 
 " Toggle editor visuals
 nmap <silent> <Leader>ts :setlocal spell!<cr>
@@ -185,10 +185,10 @@ xnoremap <C-r> :<C-u>call <SID>get_selection('/')<CR>:%s/\V<C-R>=@/<CR>//gc<Left
 
 " Returns visually selected text
 function! s:get_selection(cmdtype) "{{{
-	let temp = @s
-	normal! gv"sy
-	let @/ = substitute(escape(@s, '\'.a:cmdtype), '\n', '\\n', 'g')
-	let @s = temp
+  let temp = @s
+  normal! gv"sy
+  let @/ = substitute(escape(@s, '\'.a:cmdtype), '\n', '\\n', 'g')
+  let @s = temp
 endfunction "}}}
 
 "" Background dark/light toggle and contrasts
@@ -197,40 +197,40 @@ endfunction "}}}
 "nmap <silent> s= :<c-u>call <SID>toggle_contrast(+v:count1)<cr>
 
 "function! s:toggle_background()
-	"if ! exists('g:colors_name')
-		"echomsg 'No colorscheme set'
-		"return
-	"endif
-	"let l:scheme = g:colors_name
+  "if ! exists('g:colors_name')
+    "echomsg 'No colorscheme set'
+    "return
+  "endif
+  "let l:scheme = g:colors_name
 
-	"if l:scheme =~# 'dark' || l:scheme =~# 'light'
-		"" Rotate between different theme backgrounds
-		"execute 'colorscheme' (l:scheme =~# 'dark'
-					"\ ? substitute(l:scheme, 'dark', 'light', '')
-					"\ : substitute(l:scheme, 'light', 'dark', ''))
-	"else
-		"execute 'set background='.(&background ==# 'dark' ? 'light' : 'dark')
-		"if ! exists('g:colors_name')
-			"execute 'colorscheme' l:scheme
-			"echomsg 'The colorscheme `'.l:scheme
-				"\ .'` doesn''t have background variants!'
-		"else
-			"echo 'Set colorscheme to '.&background.' mode'
-		"endif
-	"endif
+  "if l:scheme =~# 'dark' || l:scheme =~# 'light'
+    "" Rotate between different theme backgrounds
+    "execute 'colorscheme' (l:scheme =~# 'dark'
+          "\ ? substitute(l:scheme, 'dark', 'light', '')
+          "\ : substitute(l:scheme, 'light', 'dark', ''))
+  "else
+    "execute 'set background='.(&background ==# 'dark' ? 'light' : 'dark')
+    "if ! exists('g:colors_name')
+      "execute 'colorscheme' l:scheme
+      "echomsg 'The colorscheme `'.l:scheme
+        "\ .'` doesn''t have background variants!'
+    "else
+      "echo 'Set colorscheme to '.&background.' mode'
+    "endif
+  "endif
 "endfunction
 
 "function! s:toggle_contrast(delta)
-	"let l:scheme = ''
-	"if g:colors_name =~# 'solarized8'
-		"let l:schemes = map(['_low', '_flat', '', '_high'],
-			"\ '"solarized8_".(&background).v:val')
-		"let l:contrast = ((a:delta + index(l:schemes, g:colors_name)) % 4 + 4) % 4
-		"let l:scheme = l:schemes[l:contrast]
-	"endif
-	"if l:scheme !=# ''
-		"execute 'colorscheme' l:scheme
-	"endif
+  "let l:scheme = ''
+  "if g:colors_name =~# 'solarized8'
+    "let l:schemes = map(['_low', '_flat', '', '_high'],
+      "\ '"solarized8_".(&background).v:val')
+    "let l:contrast = ((a:delta + index(l:schemes, g:colors_name)) % 4 + 4) % 4
+    "let l:scheme = l:schemes[l:contrast]
+  "endif
+  "if l:scheme !=# ''
+    "execute 'colorscheme' l:scheme
+  "endif
 "endfunction
 
 " Location list movement
@@ -260,29 +260,29 @@ nmap <silent> <Leader>se :<C-u>execute 'SessionSave' fnamemodify(resolve(getcwd(
 nmap <silent> <Leader>os :<C-u>execute 'source '.g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?').'.vim'<CR>
 
 if has('mac')
-	" Open the macOS dictionary on current word
-	nmap <Leader>? :!open dict://<cword><CR><CR>
+  " Open the macOS dictionary on current word
+  nmap <Leader>? :!open dict://<cword><CR><CR>
 
-	" Use Marked for real-time Markdown preview
-	if executable('/Applications/Marked 2.app/Contents/MacOS/Marked 2')
-		autocmd MyAutoCmd FileType markdown
-			\ nmap <buffer><Leader>P :silent !open -a Marked\ 2.app '%:p'<CR>
-	endif
+  " Use Marked for real-time Markdown preview
+  if executable('/Applications/Marked 2.app/Contents/MacOS/Marked 2')
+    autocmd MyAutoCmd FileType markdown
+      \ nmap <buffer><Leader>P :silent !open -a Marked\ 2.app '%:p'<CR>
+  endif
 
-	" Use Dash on Mac, for context help
-	if executable('/Applications/Dash.app/Contents/MacOS/Dash')
-		autocmd MyAutoCmd FileType ansible,go,php,css,less,html,markdown
-			\ nmap <silent><buffer> K :!open -g dash://"<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
-		autocmd MyAutoCmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
-			\ nmap <silent><buffer> K :!open -g dash://"<cword>"&<CR><CR>
-	endif
+  " Use Dash on Mac, for context help
+  if executable('/Applications/Dash.app/Contents/MacOS/Dash')
+    autocmd MyAutoCmd FileType ansible,go,php,css,less,html,markdown
+      \ nmap <silent><buffer> K :!open -g dash://"<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
+    autocmd MyAutoCmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
+      \ nmap <silent><buffer> K :!open -g dash://"<cword>"&<CR><CR>
+  endif
 
 " Use Zeal on Linux for context help
 elseif executable('zeal')
-	autocmd MyAutoCmd FileType ansible,go,php,css,less,html,markdown
-		\ nmap <silent><buffer> K :!zeal --query "<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
-	autocmd MyAutoCmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
-		\ nmap <silent><buffer> K :!zeal --query "<cword>"&<CR><CR>
+  autocmd MyAutoCmd FileType ansible,go,php,css,less,html,markdown
+    \ nmap <silent><buffer> K :!zeal --query "<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
+  autocmd MyAutoCmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
+    \ nmap <silent><buffer> K :!zeal --query "<cword>"&<CR><CR>
 endif
 
 " }}}
@@ -297,10 +297,10 @@ nnoremap <silent> <Leader>ml :call <SID>append_modeline()<CR>
 " Append modeline after last line in buffer
 " See: http://vim.wikia.com/wiki/Modeline_magic
 function! s:append_modeline() "{{{
-	let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
-				\ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
-	let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
-	call append(line('$'), l:modeline)
+  let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
+        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
+  call append(line('$'), l:modeline)
 endfunction "}}}
 " }}}
 
@@ -319,40 +319,40 @@ nnoremap <silent> [Window]sv :split<CR>:wincmd p<CR>:e#<CR>
 nnoremap <silent> [Window]sg :vsplit<CR>:wincmd p<CR>:e#<CR>
 
 function! WipeHiddenBuffers()
-	let tpbl=[]
-	call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-	for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-		silent execute 'bwipeout' buf
-	endfor
+  let tpbl=[]
+  call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+  for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+    silent execute 'bwipeout' buf
+  endfor
 endfunction
 
 function! s:BufferEmpty()
-	let l:current = bufnr('%')
-	if ! getbufvar(l:current, '&modified')
-		enew
-		silent! execute 'bdelete '.l:current
-	endif
+  let l:current = bufnr('%')
+  if ! getbufvar(l:current, '&modified')
+    enew
+    silent! execute 'bdelete '.l:current
+  endif
 endfunction
 
 function! s:SweepBuffers()
-	let bufs = range(1, bufnr('$'))
-	let hidden = filter(bufs, 'buflisted(v:val) && !bufloaded(v:val)')
-	if ! empty(hidden)
-		execute 'silent bdelete' join(hidden)
-	endif
+  let bufs = range(1, bufnr('$'))
+  let hidden = filter(bufs, 'buflisted(v:val) && !bufloaded(v:val)')
+  if ! empty(hidden)
+    execute 'silent bdelete' join(hidden)
+  endif
 endfunction
 
 " OpenChangedFiles COMMAND
 " Open a split for each dirty file in git
 function! OpenChangedFiles()
-	only " Close all windows, unless they're modified
-	let status =
-		\ system('git status -s | grep "^ \?\(M\|A\|UU\)" | sed "s/^.\{3\}//"')
-	let filenames = split(status, "\n")
-	exec 'edit ' . filenames[0]
-	for filename in filenames[1:]
-		exec 'sp ' . filename
-	endfor
+  only " Close all windows, unless they're modified
+  let status =
+    \ system('git status -s | grep "^ \?\(M\|A\|UU\)" | sed "s/^.\{3\}//"')
+  let filenames = split(status, "\n")
+  exec 'edit ' . filenames[0]
+  for filename in filenames[1:]
+    exec 'sp ' . filename
+  endfor
 endfunction
 
 " vim: set ts=2 sw=2 tw=80 et :

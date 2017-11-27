@@ -21,27 +21,27 @@ xnoremap m        <Nop>
 " }}}
 " Ensure cache directory "{{{
 if ! isdirectory(expand($VARPATH))
-	" Create missing dirs i.e. cache/{undo,backup}
-	call mkdir(expand('$VARPATH/undo'), 'p')
-	call mkdir(expand('$VARPATH/backup'))
+  " Create missing dirs i.e. cache/{undo,backup}
+  call mkdir(expand('$VARPATH/undo'), 'p')
+  call mkdir(expand('$VARPATH/backup'))
 endif
 
 " }}}
 " Setup dein {{{
 if &runtimepath !~# '/dein.vim'
-	let s:dein_dir = expand('$VARPATH/dein').'/repos/github.com/Shougo/dein.vim'
-	if ! isdirectory(s:dein_dir)
-		execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-	endif
+  let s:dein_dir = expand('$VARPATH/dein').'/repos/github.com/Shougo/dein.vim'
+  if ! isdirectory(s:dein_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+  endif
 
-	execute 'set runtimepath+='.substitute(
-		\ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
+  execute 'set runtimepath+='.substitute(
+    \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
 endif
 
 " }}}
 " Load less plugins while SSHing to remote machines {{{
 if len($SSH_CLIENT)
-	let $VIM_MINIMAL = 1
+  let $VIM_MINIMAL = 1
 endif
 
 " }}}

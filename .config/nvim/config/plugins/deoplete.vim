@@ -22,11 +22,11 @@ let g:deoplete#sources#jedi#show_docstring = 1
 let g:deoplete#sources#jedi#short_types = 1
 
 let g:deoplete#sources#ternjs#filetypes = [
-	\ 'jsx',
-	\ 'javascript.jsx',
-	\ 'vue',
-	\ 'javascript'
-	\ ]
+  \ 'jsx',
+  \ 'javascript.jsx',
+  \ 'vue',
+  \ 'javascript'
+  \ ]
 
 let g:deoplete#sources#ternjs#timeout = 3
 let g:deoplete#sources#ternjs#types = 1
@@ -61,14 +61,14 @@ let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
 let g:deoplete#omni#functions.html = 'htmlcomplete#CompleteTags'
 let g:deoplete#omni#functions.markdown = 'htmlcomplete#CompleteTags'
 " let g:deoplete#omni#functions.javascript =
-"	\ [ 'tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS' ]
+"  \ [ 'tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS' ]
 
 let g:deoplete#omni_patterns = get(g:, 'deoplete#omni_patterns', {})
 let g:deoplete#omni_patterns.html = '<[^>]*'
 " let g:deoplete#omni_patterns.javascript = '[^. *\t]\.\w*'
 " let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%\(\h\w*\)\?'
 let g:deoplete#omni_patterns.php =
-	\ '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+  \ '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
 let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
 let g:deoplete#omni#input_patterns.xml = '<[^>]*'
@@ -123,12 +123,12 @@ call deoplete#custom#source('syntax',        'rank', 200)
 " Default matchers: ['matcher_length', 'matcher_fuzzy']
 
 call deoplete#custom#source('_', 'converters', [
-	\ 'converter_remove_paren',
-	\ 'converter_remove_overlap',
-	\ 'converter_truncate_abbr',
-	\ 'converter_truncate_menu',
-	\ 'converter_auto_delimiter',
-	\ ])
+  \ 'converter_remove_paren',
+  \ 'converter_remove_overlap',
+  \ 'converter_truncate_abbr',
+  \ 'converter_truncate_menu',
+  \ 'converter_auto_delimiter',
+  \ ])
 
 " }}}
 " Key-mappings and Events " {{{
@@ -156,8 +156,8 @@ inoremap <expr><C-l> deoplete#complete_common_string()
 " <CR>: If popup menu visible, expand snippet or close popup with selection,
 "       Otherwise, check if within empty pair and use delimitMate.
 inoremap <silent><expr><CR> pumvisible() ?
-	\ (neosnippet#expandable() ? neosnippet#mappings#expand_impl() : deoplete#close_popup())
-		\ : (delimitMate#WithinEmptyPair() ? "\<C-R>=delimitMate#ExpandReturn()\<CR>" : "\<CR>")
+  \ (neosnippet#expandable() ? neosnippet#mappings#expand_impl() : deoplete#close_popup())
+    \ : (delimitMate#WithinEmptyPair() ? "\<C-R>=delimitMate#ExpandReturn()\<CR>" : "\<CR>")
 
 " <Tab> completion:
 " 1. If popup menu is visible, select and insert next item
@@ -165,20 +165,20 @@ inoremap <silent><expr><CR> pumvisible() ?
 " 3. Otherwise, if preceding chars are whitespace, insert tab char
 " 4. Otherwise, start manual autocomplete
 imap <silent><expr><Tab> pumvisible() ? "\<Down>"
-	\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : deoplete#manual_complete()))
+  \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+  \ : (<SID>is_whitespace() ? "\<Tab>"
+  \ : deoplete#manual_complete()))
 
 smap <silent><expr><Tab> pumvisible() ? "\<Down>"
-	\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : deoplete#manual_complete()))
+  \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+  \ : (<SID>is_whitespace() ? "\<Tab>"
+  \ : deoplete#manual_complete()))
 
 inoremap <expr><S-Tab>  pumvisible() ? "\<Up>" : "\<C-h>"
 
 function! s:is_whitespace() "{{{
-	let col = col('.') - 1
-	return ! col || getline('.')[col - 1] =~? '\s'
+  let col = col('.') - 1
+  return ! col || getline('.')[col - 1] =~? '\s'
 endfunction "}}}
 " }}}
 
