@@ -326,4 +326,4 @@ function! s:execute_system_associated(filenode)
 endfunction
 " }}}
 
-" vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
+" vim: set foldmethod=marker ts=2 sw=2 tw=80 et :

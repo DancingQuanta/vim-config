@@ -44,4 +44,4 @@ wincmd L
 " nmap <buffer> T h?\*\S\+\*<CR>l
 
 let &cpoptions = s:save_cpo
-" vim: set ts=2 sw=2 tw=80 noet :
+" vim: set ts=2 sw=2 tw=80 et :

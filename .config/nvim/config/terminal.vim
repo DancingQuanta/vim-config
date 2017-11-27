@@ -131,4 +131,4 @@ if s:tmux
 	execute "set <F12>=\e[24;*~"
 endif
 
-" vim: set ts=2 sw=2 tw=80 noet :
+" vim: set ts=2 sw=2 tw=80 et :
