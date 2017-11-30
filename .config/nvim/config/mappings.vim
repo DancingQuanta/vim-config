@@ -5,96 +5,104 @@
 " Non-standard {{{
 " ------------
 
-"" Window-control prefix
-"nnoremap  [Window]   <Nop>
-"nmap      s [Window]
+" Window-control prefix
+nnoremap  [Window]   <Nop>
+nmap      s [Window]
 
-"" Fix keybind name for Ctrl+Spacebar
-"map <Nul> <C-Space>
-"map! <Nul> <C-Space>
+" Fix keybind name for Ctrl+Spacebar
+map <Nul> <C-Space>
+map! <Nul> <C-Space>
 
-"" Double leader key for toggling visual-line mode
-"nmap <silent> <Leader><Leader> V
-"vmap <Leader><Leader> <Esc>
+" Disable arrow movement, resize splits instead.
+if get(g:, 'elite_mode')
+  nnoremap <Up>    :resize +2<CR>
+  nnoremap <Down>  :resize -2<CR>
+  nnoremap <Left>  :vertical resize +2<CR>
+  nnoremap <Right> :vertical resize -2<CR>
+endif
 
-"" Change current word in a repeatable manner
-"nnoremap cn *``cgn
-"nnoremap cN *``cgN
+" Double leader key for toggling visual-line mode
+nmap <silent> <Leader><Leader> V
+vmap <Leader><Leader> <Esc>
 
-"" Change selected word in a repeatable manner
-"vnoremap <expr> cn "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgn"
-"vnoremap <expr> cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
+" Change current word in a repeatable manner
+nnoremap cn *``cgn
+nnoremap cN *``cgN
 
-"nnoremap cp yap<S-}>p
-"nnoremap <leader>a =ip
+" Change selected word in a repeatable manner
+vnoremap <expr> cn "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgn"
+vnoremap <expr> cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
 
-"" xnoremap p  "0p
-"" nnoremap x "_x
+nnoremap cp yap<S-}>p
+nnoremap <leader>a =ip
 
-"" Toggle fold
-"nnoremap <CR> za
+" xnoremap p  "0p
+" nnoremap x "_x
 
-"" Focus the current fold by closing all others
-"nnoremap <S-Return> zMza
+" Toggle fold
+nnoremap <CR> za
 
-"" Use backspace key for matchit.vim
-"nmap <BS> %
-"xmap <BS> %
+" Focus the current fold by closing all others
+nnoremap <S-Return> zMza
 
-"nmap <Tab>  <C-w>w
-"nmap <S-Tab>  <C-w>W
+" Use backspace key for matchit.vim
+nmap <BS> %
+xmap <BS> %
 
-""}}}
-"" Global niceties {{{
-"" ---------------
+nmap <Tab>  <C-w>w
+nmap <S-Tab>  <C-w>W
 
-"" Start an external command with a single bang
-"nnoremap ! :!
+"}}}
+" Global niceties {{{
+" ---------------
 
-"" Allow misspellings
-"cnoreabbrev qw wq
-"cnoreabbrev Wq wq
-"cnoreabbrev WQ wq
-"cnoreabbrev Qa qa
-"cnoreabbrev Bd bd
-"cnoreabbrev bD bd
+" Start an external command with a single bang
+nnoremap ! :!
 
-"" Start new line from any cursor position
-"inoremap <S-Return> <C-o>o
+" Allow misspellings
+cnoreabbrev qw wq
+cnoreabbrev Wq wq
+cnoreabbrev WQ wq
+cnoreabbrev Qa qa
+cnoreabbrev Bd bd
+cnoreabbrev bD bd
 
-"" Quick substitute within selected area
-"xnoremap s :s//g<Left><Left>
+" Start new line from any cursor position
+inoremap <S-Return> <C-o>o
 
-"nnoremap zl z5l
-"nnoremap zh z5h
+" Quick substitute within selected area
+xnoremap s :s//g<Left><Left>
 
-"" Improve scroll, credits: https://github.com/Shougo
-"nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
-  "\ 'zt' : (winline() == 1) ? 'zb' : 'zz'
-"noremap <expr> <C-f> max([winheight(0) - 2, 1])
-  "\ ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
-"noremap <expr> <C-b> max([winheight(0) - 2, 1])
-  "\ ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
-"noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
-"noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
+nnoremap zl z5l
+nnoremap zh z5h
 
-"" Window control
-"nnoremap <C-q> <C-w>
-"nnoremap <C-x> <C-w>x
-"nnoremap <silent><C-w>z :vert resize<CR>:resize<CR>:normal! ze<CR>
+" Improve scroll, credits: https://github.com/Shougo
+nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
+  \ 'zt' : (winline() == 1) ? 'zb' : 'zz'
+noremap <expr> <C-f> max([winheight(0) - 2, 1])
+  \ ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
+noremap <expr> <C-b> max([winheight(0) - 2, 1])
+  \ ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
+noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
+noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
 
-"" Select blocks after indenting
-"xnoremap < <gv
-"xnoremap > >gv|
+" Window control
+nnoremap <C-q> <C-w>
+nnoremap <C-x> <C-w>x
+nnoremap <silent><C-w>z :vert resize<CR>:resize<CR>:normal! ze<CR>
 
-"" Use tab for indenting in visual mode
-""vnoremap <Tab> >gv|
-""vnoremap <S-Tab> <gv
-""nnoremap > >>_
-""nnoremap < <<_
+" Select blocks after indenting
+xnoremap < <gv
+xnoremap > >gv|
 
-"" Select last paste
-"nnoremap <expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
+" Use tab for indenting in visual mode
+vnoremap <Tab> >gv|
+vnoremap <S-Tab> <gv
+nnoremap > >>_
+nnoremap < <<_
+
+" Select last paste
+nnoremap <expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
 
 " Navigation in command line
 cnoremap <C-h> <Home>
