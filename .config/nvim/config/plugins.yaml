@@ -186,11 +186,7 @@
 - repo: majutsushi/tagbar
   if: empty($VIM_MINIMAL)
   on_cmd: TagbarToggle
-  hook_source: |
-    let g:tagbar_width = 40
-    if executable('jsctags')
-      let g:tagbar_type_javascript = { 'ctagsbin': 'jsctags' }
-    endif
+  hook_source: source $VIMPATH/config/plugins/tagbar.vim
 
 - repo: beloglazov/vim-online-thesaurus
   if: empty($VIM_MINIMAL)

@@ -5,3 +5,4 @@ dependencies:
     - neovim
     - PyYAML
     - six
+    - markdown2ctags
