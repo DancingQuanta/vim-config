@@ -283,18 +283,19 @@
     let g:vimwiki_hl_headers = 1
     let g:vimwiki_hl_cb_checked = 1
     let g:vimwiki_autowriteall = 0
-  hook_source: |
-    let g:vimwiki_list = [
-    \   { 'diary_header': 'Diary',
-    \     'diary_link_fmt': '%Y-%m/%d',
-    \     'auto_toc': 1,
-    \     'path': '~/docs/wiki/',
-    \     'syntax': 'markdown',
-    \     'ext': '.md' },
-    \   { 'path': '~/docs/blog/',
-    \     'syntax': 'markdown',
-    \     'ext': '.md' }
-    \ ]
+  hook_source: source $VIMPATH/config/plugins/vimwiki.vim
+
+# - repo: tbabej/taskwiki
+#   if: empty($VIM_MINIMAL)
+#   on_map: { n: <Plug> }
+
+# - repo: vim-taskwarrior
+#   if: empty($VIM_MINIMAL)
+#   on_map: { n: <Plug> }
+
+# - repo: j-jith/vim-taskwarrior-kanban
+#   if: empty($VIM_MINIMAL)
+#   on_map: { n: <Plug> }
 
 # ==========================================
 # Completion
