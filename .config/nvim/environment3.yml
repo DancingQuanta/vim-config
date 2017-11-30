@@ -4,3 +4,4 @@ dependencies:
   - pip:
     - neovim
     - PyYAML
+    - six

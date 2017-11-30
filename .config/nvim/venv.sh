@@ -13,8 +13,21 @@ venv="${XDG_CACHE_HOME:-$HOME/.cache}/vim/venv"
 [ -d "$venv" ] || mkdir -p "$venv"
 # Check if conda is installed
 if [[ -x $(command -v conda) ]]; then
-  [ -d "$venv/neovim2" ] || conda env create -p "$venv/neovim2" -f environment2.yml
-  [ -d "$venv/neovim3" ] || conda env create -p "$venv/neovim3" -f environment3.yml
+  echo 'PYTHON 2'
+  if [ -d "$venv/neovim2" ]; then
+    echo 'Updating Python 2 env for vim'
+    conda env update -p "$venv/neovim2" -f environment2.yml
+  else
+    echo 'Generating Python 2 env for vim'
+    conda env create -p "$venv/neovim2" -f environment2.yml
+  fi
+  if [ -d "$venv/neovim3" ]; then
+    echo 'Updating Python 3 env for vim'
+    conda env update -p "$venv/neovim3" -f environment3.yml
+  else
+    echo 'Generating Python 3 env for vim'
+    conda env create -p "$venv/neovim3" -f environment3.yml
+  fi
 else
   [ -d "$venv/neovim2" ] || $vrenv2 "$venv/neovim2"
   [ -d "$venv/neovim3" ] || $vrenv3 "$venv/neovim3"
