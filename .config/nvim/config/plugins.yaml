@@ -197,10 +197,6 @@
   on_cmd: [ OnlineThesaurusCurrentWord, Thesaurus ]
   hook_source: let g:online_thesaurus_map_keys = 0
 
-- repo: waiting-for-dev/vim-www
-  if: empty($VIM_MINIMAL)
-  hook_post_source: source $VIMPATH/config/plugins/www.vim
-
 # ==========================================
 # Interface
 # ---------
