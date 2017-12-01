@@ -9,6 +9,9 @@
 - repo: rafi/vim-badge
 - repo: thinca/vim-localrc
 - repo: christoomey/vim-tmux-navigator
+  hook_add: |
+    let g:tmux_navigator_save_on_switch = 2
+
 - repo: junegunn/vim-peekaboo
 - repo: tpope/vim-sleuth
 - repo: sgur/vim-editorconfig
