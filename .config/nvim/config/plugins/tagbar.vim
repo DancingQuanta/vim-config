@@ -7,16 +7,12 @@ if executable('jsctags')
 endif
 
 " Add support for markdown files in tagbar.
-if exists("g:python3_scripts")
-  if !empty("g:python3_scripts")
-    let g:markdown2ctagsbin = g:python3_scripts.'/markdown2ctags'
-  endif
-elseif exists("g:python2_scripts")
-  if !empty("g:python2_scripts")
-    let g:markdown2ctagsbin = g:python2_scripts.'/markdown2ctags'
-  endif
+if exists("g:python3_scripts") && !empty("g:python3_scripts")
+  let g:markdown2ctagsbin = g:python3_scripts.'/markdown2ctags'
+elseif exists("g:python2_scripts") && !empty("g:python2_scripts")
+  let g:markdown2ctagsbin = g:python2_scripts.'/markdown2ctags'
 endif
-if executable(g:markdown2ctagsbin)
+if exists("g:markdown2ctagsbin") && executable(g:markdown2ctagsbin)
   let g:tagbar_type_markdown = {
     \ 'ctagstype': 'markdown',
     \ 'ctagsbin' : g:markdown2ctagsbin,
