@@ -69,16 +69,16 @@
       \ 'py=python'
       \ ]
 
-- repo: vim-pandoc/vim-pandoc
-  on_ft: markdown
+# - repo: vim-pandoc/vim-pandoc
+#   on_ft: markdown
 
-- repo: vim-pandoc/vim-pandoc-syntax
-  depends: vim-pandoc
-  on_ft: markdown
+# - repo: vim-pandoc/vim-pandoc-syntax
+#   depends: vim-pandoc
+#   on_ft: markdown
 
-- repo: vim-pandoc/vim-pandoc-after
-  depends: vim-pandoc
-  on_ft: markdown
+# - repo: vim-pandoc/vim-pandoc-after
+#   depends: vim-pandoc
+#   on_ft: markdown
 
 - repo: rhysd/vim-gfm-syntax
   depends: vim-markdown
