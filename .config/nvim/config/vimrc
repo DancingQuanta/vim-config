@@ -130,8 +130,6 @@ if dein#load_state(s:path)
   endif
 endif
 
-call s:source_file('plugins/all.vim')
-
 filetype plugin indent on
 syntax enable
 
@@ -140,11 +138,6 @@ if ! has('vim_starting')
   call dein#call_hook('post_source')
 endif
 
-" Loading configuration modules
-call s:source_file('general.vim')
-call s:source_file('filetype.vim')
-call s:source_file('mappings.vim')
-"call s:source_file('theme.vim')
 set secure
 
 " vim: set ts=2 sw=2 tw=80 et :
