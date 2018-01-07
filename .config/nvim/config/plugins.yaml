@@ -15,12 +15,12 @@
 - repo: junegunn/vim-peekaboo
 - repo: tpope/vim-sleuth
 - repo: itchyny/vim-gitbranch
-- repo: itchyny/vim-parenmatch
-- repo: itchyny/vim-cursorword
-  hook_add: |
-    autocmd MyAutoCmd FileType denite,qf,nerdtree let b:cursorword=0
-    autocmd MyAutoCmd InsertEnter * let b:cursorword=0
-    autocmd MyAutoCmd InsertLeave * let b:cursorword=1
+# - repo: itchyny/vim-parenmatch
+# - repo: itchyny/vim-cursorword
+  # hook_add: |
+  #   autocmd MyAutoCmd FileType denite,qf,nerdtree let b:cursorword=0
+  #   autocmd MyAutoCmd InsertEnter * let b:cursorword=0
+  #   autocmd MyAutoCmd InsertLeave * let b:cursorword=1
 
 # Lazy Loading
 # ==========================================
