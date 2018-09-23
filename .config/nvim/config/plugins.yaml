@@ -443,6 +443,11 @@
 - { repo: rafi/vim-denite-session, on_source: denite.nvim }
 - { repo: rafi/vim-denite-task, on_source: denite.nvim }
 
+- repo: DancingQuanta/citation.vim
+  rev: denite
+  on_source: denite.nvim
+  hook_source: source $VIMPATH/config/plugins/citation.vim
+
 - repo: rafi/vim-denite-mpc
   if: executable('mpc') && empty($VIM_MINIMAL)
   on_source: denite.nvim
