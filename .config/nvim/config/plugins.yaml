@@ -499,7 +499,6 @@
 - { repo: chemzqm/denite-git, on_source: denite.nvim }
 - { repo: rafi/vim-denite-z, on_source: denite.nvim }
 - { repo: rafi/vim-denite-session, on_source: denite.nvim }
-- { repo: rafi/vim-denite-task, on_source: denite.nvim }
 
 # - repo: nixprime/cpsm
 #   build: 'sh -c "PY3=ON ./install.sh"'
@@ -514,6 +513,11 @@
 #   if: executable('mpc')
 #   on_source: denite.nvim
 #   hook_source: call denite#custom#var('mpc', 'default_view', 'date')
+
+- repo: DancingQuanta/citation.vim
+  rev: denite
+  on_source: denite.nvim
+  hook_source: source $VIMPATH/config/plugins/citation.vim
 
 # ==========================================
 # Operators
