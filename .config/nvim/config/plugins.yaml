@@ -285,9 +285,11 @@
     let g:vimwiki_autowriteall = 0
   hook_source: source $VIMPATH/config/plugins/vimwiki.vim
 
-# - repo: tbabej/taskwiki
-#   if: empty($VIM_MINIMAL)
-#   on_map: { n: <Plug> }
+- repo: DancingQuanta/taskwiki
+  rev: extra-syntaxes-reorganised
+  # if: empty($VIM_MINIMAL)
+  # on_map: { n: <Plug> }
+  # on_source: vimwiki
 
 # - repo: vim-taskwarrior
 #   if: empty($VIM_MINIMAL)
