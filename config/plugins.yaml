@@ -389,6 +389,11 @@
     \     'ext': '.md' }
     \ ]
 
+- repo: michal-h21/vim-zettel
+  on_ft: md
+  hook_add : |
+    let g:zettel_format = "%y%m%d-%H%M-%title"
+
 - repo: norcalli/nvim-colorizer.lua
   if: has('nvim-0.4')
   on_event: FileType
