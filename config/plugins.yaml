@@ -24,18 +24,18 @@
 - repo: tpope/vim-sleuth
   hook_add: let g:sleuth_neighbor_limit = 5
 
-- repo: liuchengxu/vim-clap
-  merged: 0
-  hook_add: |
-    let g:clap_cache_directory = $DATA_PATH . '/clap'
-    let g:clap_theme = 'atom_dark'
-    let g:clap_layout = { 'relative': 'editor' }
-    let g:clap_enable_icon = 1
-    let g:clap_search_box_border_style = 'curve'
-    let g:clap_provider_grep_enable_icon = 1
-    let g:clap_prompt_format = '%spinner%%forerunner_status% %provider_id%: '
-    highlight! link ClapMatches Function
-    highlight! link ClapNoMatchesFound WarningMsg
+# - repo: liuchengxu/vim-clap
+#   merged: 0
+#   hook_add: |
+#     let g:clap_cache_directory = $DATA_PATH . '/clap'
+#     let g:clap_theme = 'atom_dark'
+#     let g:clap_layout = { 'relative': 'editor' }
+#     let g:clap_enable_icon = 1
+#     let g:clap_search_box_border_style = 'curve'
+#     let g:clap_provider_grep_enable_icon = 1
+#     let g:clap_prompt_format = '%spinner%%forerunner_status% %provider_id%: '
+#     highlight! link ClapMatches Function
+#     highlight! link ClapNoMatchesFound WarningMsg
 
 # GUI only:
 - { repo: equalsraf/neovim-gui-shim, if: has('gui_running') }
@@ -102,64 +102,24 @@
     let g:gfm_syntax_highlight_emoji = 0
     let g:gfm_syntax_enable_filetypes = ['markdown']
 
-# Javascript related
-- repo: pangloss/vim-javascript
-  on_ft: [ javascript, javascriptreact ]
-  hook_add: |
-    let g:javascript_plugin_jsdoc = 1
-    let g:javascript_plugin_flow = 1
-
-- repo: HerringtonDarkholme/yats.vim
-  on_ft: [ typescript, typescriptreact ]
-
-- repo: MaxMEllon/vim-jsx-pretty
-  on_ft: [ javascript, javascriptreact, typescriptreact ]
-  depends: vim-javascript
-  hook_add: let g:vim_jsx_pretty_colorful_config = 1
-
-- { repo: leafOfTree/vim-svelte-plugin, depends: yats.vim, on_ft: svelte }
-- { repo: heavenshell/vim-jsdoc, on_ft: [ javascript, javascriptreact ] }
-- { repo: jparise/vim-graphql, on_ft: [ javascript, javascriptreact ] }
-- { repo: moll/vim-node, on_ft: [ javascript, javascriptreact ] }
-- { repo: kchmck/vim-coffee-script, on_ft: [ coffee, litcoffee ] }
-- { repo: elzr/vim-json, on_ft: json }
-- { repo: posva/vim-vue, on_ft: vue }
-
-# pangloss/javascript vs. othree/yajs
-#- { repo: othree/yajs.vim, on_ft: [ javascript, javascriptreact ]}
-#- { repo: gavocanov/vim-js-indent, on_ft: [ javascript, javascriptreact ]}
-#- repo: mxw/vim-jsx
-#  on_ft: [ javascript, javascriptreact ]
-#  hook_add: let g:jsx_ext_required = 0
-
-# Golang related
-- repo: fatih/vim-go
-  if: has('nvim-0.4.0') || has('patch-8.0.1453')
-  on_ft: [ go, gomod ]
-  hook_add: |
-    let g:go_gopls_enabled = 0
-    let g:go_code_completion_enabled = 0
-    let g:go_doc_keywordprg_enabled = 0
-    let g:go_def_mapping_enabled = 0
-    let g:go_mod_fmt_autosave = 0
-    let g:go_highlight_array_whitespace_error = 0
-    let g:go_highlight_chan_whitespace_error = 0
-    let g:go_highlight_space_tab_error = 0
-    let g:go_highlight_trailing_whitespace_error = 0
-    let g:go_highlight_extra_types = 1
-    let g:go_highlight_build_constraints = 1
-    let g:go_highlight_extra_types = 1
-    let g:go_highlight_fields = 1
-    let g:go_highlight_format_strings = 1
-    let g:go_highlight_functions = 1
-    let g:go_highlight_function_calls = 1
-    let g:go_highlight_function_parameters = 1
-    let g:go_highlight_types = 1
-    let g:go_highlight_generate_tags = 1
-    let g:go_highlight_operators = 1
-    let g:go_highlight_string_spellcheck = 0
-    let g:go_highlight_variable_declarations = 0
-    let g:go_highlight_variable_assignments = 0
+# - repo: lamcco/markdown-preview.nvim
+#   on_ft: markdown vimwiki
+#   build: call mkdp#util#install()
+#   hook_add: |
+#     let g:mkdp_auto_start = 1
+#     let g:mkdp_auto_close = 1
+#     let g:mkdp_preview_options = {
+#         \ 'mkit': {},
+#         \ 'katex': {},
+#         \ 'uml': {},
+#         \ 'maid': {},
+#         \ 'disable_sync_scroll': 0,
+#         \ 'sync_scroll_type': 'middle',
+#         \ 'hide_yaml_meta': 1,
+#         \ 'sequence_diagrams': {},
+#         \ 'flowchart_diagrams': {},
+#         \ 'content_editable': v:false
+#         \ }
 
 # Python related
 - { repo: vim-python/python-syntax, on_ft: python }
@@ -201,10 +161,6 @@
       \   '*.conf.j2': 'conf',
       \   '*.ini.j2': 'ini'
       \ }
-
-- repo: hashivim/vim-terraform
-  on_ft: terraform
-  on_cmd: [ Terraform, TerraformFmt ]
 
 # ==========================================
 # Commands
@@ -362,32 +318,32 @@
     let g:gitgutter_sign_priority = 0
     let g:gitgutter_override_sign_column_highlight = 0
 
-- repo: kshenoy/vim-signature
-  depends: vim-gitgutter
-  on_event: FileType
-  hook_add: |
-    let g:SignatureForceRemoveGlobal = 0
-    let g:SignatureUnconditionallyRecycleMarks = 1
-    let g:SignatureErrorIfNoAvailableMarks = 0
-    let g:SignaturePurgeConfirmation = 0
-    let g:SignatureMarkTextHLDynamic = 1
-    let g:SignatureMarkerTextHLDynamic = 1
-    let g:SignatureIncludeMarkers = repeat('⚐', 10)
-    autocmd user_events User GitGutter call signature#sign#Refresh()
-
-- repo: nathanaelkane/vim-indent-guides
-  on_event: FileType
-  hook_post_source: IndentGuidesEnable
-  hook_add: |
-    let g:indent_guides_default_mapping = 0
-    let g:indent_guides_tab_guides = 0
-    let g:indent_guides_color_change_percent = 3
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_exclude_filetypes = [
-      \ 'help', 'denite', 'denite-filter', 'startify',
-      \ 'vista', 'vista_kind', 'tagbar', 'nerdtree',
-      \ 'lsp-hover', 'clap_input'
-      \ ]
+# - repo: kshenoy/vim-signature
+#   depends: vim-gitgutter
+#   on_event: FileType
+#   hook_add: |
+#     let g:SignatureForceRemoveGlobal = 0
+#     let g:SignatureUnconditionallyRecycleMarks = 1
+#     let g:SignatureErrorIfNoAvailableMarks = 0
+#     let g:SignaturePurgeConfirmation = 0
+#     let g:SignatureMarkTextHLDynamic = 1
+#     let g:SignatureMarkerTextHLDynamic = 1
+#     let g:SignatureIncludeMarkers = repeat('⚐', 10)
+#     autocmd user_events User GitGutter call signature#sign#Refresh()
+# 
+# - repo: nathanaelkane/vim-indent-guides
+#   on_event: FileType
+#   hook_post_source: IndentGuidesEnable
+#   hook_add: |
+#     let g:indent_guides_default_mapping = 0
+#     let g:indent_guides_tab_guides = 0
+#     let g:indent_guides_color_change_percent = 3
+#     let g:indent_guides_guide_size = 1
+#     let g:indent_guides_exclude_filetypes = [
+#       \ 'help', 'denite', 'denite-filter', 'startify',
+#       \ 'vista', 'vista_kind', 'tagbar', 'nerdtree',
+#       \ 'lsp-hover', 'clap_input'
+#       \ ]
 
 - repo: rhysd/committia.vim
   on_path: [ COMMIT_EDITMSG, MERGE_MSG ]
