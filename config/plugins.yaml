@@ -375,6 +375,7 @@
     let g:vimwiki_hl_headers = 1
     let g:vimwiki_hl_cb_checked = 1
     let g:vimwiki_autowriteall = 0
+    autocmd FileType vimwiki UltiSnipsAddFiletypes markdown.vimwiki
   hook_source: |
     let g:vimwiki_list = [
     \   { 'diary_header': 'Diary',
@@ -516,8 +517,8 @@
   hook_add: |
     let g:UltiSnipsExpandTrigger = '<C-l>'
     let g:UltiSnipsListSnippets = ''
-    let g:UltiSnipsJumpForwardTrigger = '<C-f>'
-    let g:UltiSnipsJumpBackwardTrigger = '<C-b>'
+    let g:UltiSnipsJumpForwardTrigger = '<C-l>'
+    let g:UltiSnipsJumpBackwardTrigger = '<C-h>'
 
 - repo: honza/vim-snippets
   depends: ultisnips
